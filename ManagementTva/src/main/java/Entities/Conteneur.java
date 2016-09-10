@@ -3,6 +3,8 @@ package Entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -24,7 +26,25 @@ public class Conteneur implements Serializable {
 		super();
 	}
 
+	public Conteneur(String name, String chauffeur, String marque,
+			String matricule, String proprietaire) {
+		super();
+		this.name = name;
+		this.chauffeur = chauffeur;
+		this.marque = marque;
+		this.matricule = matricule;
+		this.proprietaire = proprietaire;
+	}
+
+	@Override
+	public String toString() {
+		return "Conteneur [name=" + name + ", chauffeur=" + chauffeur
+				+ ", marque=" + marque + ", matricule=" + matricule
+				+ ", proprietaire=" + proprietaire + "]";
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

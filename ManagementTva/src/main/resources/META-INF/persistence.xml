@@ -10,6 +10,7 @@
 		<class>Entities.Client</class>
 		<class>Entities.Commande</class>
 		<class>Entities.Categorie</class>
+		<class>Entities.Admin</class>
 
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

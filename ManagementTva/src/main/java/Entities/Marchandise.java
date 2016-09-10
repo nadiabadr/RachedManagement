@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,7 +33,28 @@ public class Marchandise implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Marchandise [reference=" + reference + ", nature=" + nature
+				+ ", quantite=" + quantite + ", total=" + total + ", tva="
+				+ tva + ", commande=" + commande + ", produits=" + produits
+				+ "]";
+	}
+
+	public Marchandise(String reference, String nature, Integer quantite,
+			float total, float tva, Commande commande, List<Produit> produits) {
+		super();
+		this.reference = reference;
+		this.nature = nature;
+		this.quantite = quantite;
+		this.total = total;
+		this.tva = tva;
+		this.commande = commande;
+		this.produits = produits;
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

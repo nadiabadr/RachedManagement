@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -24,7 +26,19 @@ public class Categorie implements Serializable {
 		super();
 	}
 
+	public Categorie(String name, List<Produit> produits) {
+		super();
+		this.name = name;
+		this.produits = produits;
+	}
+
+	@Override
+	public String toString() {
+		return "Categorie [name=" + name + ", produits=" + produits + "]";
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

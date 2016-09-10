@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,7 +33,26 @@ public class Commande implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Commande [ref=" + ref + ", etat=" + etat + ", montant="
+				+ montant + ", tva=" + tva + ", client=" + client
+				+ ", marchandises=" + marchandises + "]";
+	}
+
+	public Commande(String ref, boolean etat, float montant, float tva,
+			Client client, List<Marchandise> marchandises) {
+		super();
+		this.ref = ref;
+		this.etat = etat;
+		this.montant = montant;
+		this.tva = tva;
+		this.client = client;
+		this.marchandises = marchandises;
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -26,7 +28,23 @@ public class Client implements Serializable {
 		super();
 	}
 
+	public Client(String name, String responsable, Integer numTel,
+			List<Commande> commandes) {
+		super();
+		this.name = name;
+		this.responsable = responsable;
+		this.numTel = numTel;
+		this.commandes = commandes;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [name=" + name + ", responsable=" + responsable
+				+ ", numTel=" + numTel + ", commandes=" + commandes + "]";
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

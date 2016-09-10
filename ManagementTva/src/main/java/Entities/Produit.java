@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -27,7 +29,25 @@ public class Produit implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Produit [reference=" + reference + ", nom=" + nom
+				+ ", prixUnitaire=" + prixUnitaire + ", categorie=" + categorie
+				+ ", marchandise=" + marchandise + "]";
+	}
+
+	public Produit(String reference, String nom, float prixUnitaire,
+			Categorie categorie, Marchandise marchandise) {
+		super();
+		this.reference = reference;
+		this.nom = nom;
+		this.prixUnitaire = prixUnitaire;
+		this.categorie = categorie;
+		this.marchandise = marchandise;
+	}
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
