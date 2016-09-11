@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Dimension;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GestionClient extends JFrame {
 
@@ -34,28 +36,36 @@ public class GestionClient extends JFrame {
 	 */
 	public GestionClient() {
 		setMinimumSize(new Dimension(1100, 700));
-		setPreferredSize(new Dimension(1100, 700));
-		setSize(new Dimension(1100, 700));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setPreferredSize(new Dimension(1100, 700));
-		contentPane.setMaximumSize(new Dimension(1100, 700));
-		contentPane.setMinimumSize(new Dimension(1100, 700));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnGestionClient = new JButton("Gestion Client");
-		btnGestionClient.setBounds(88, 114, 172, 133);
-		contentPane.add(btnGestionClient);
+		JButton btnAjouterClient = new JButton("Ajouter Client");
+		btnAjouterClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAjouterClient.setBounds(0, 0, 195, 169);
+		contentPane.add(btnAjouterClient);
 		
-		JButton btnGestionComptable = new JButton("Gestion Comptable");
-		btnGestionComptable.setBounds(335, 114, 172, 133);
-		contentPane.add(btnGestionComptable);
+		JButton btnMettreJour = new JButton("Mettre \u00E0 jour Client");
+		btnMettreJour.setBounds(0, 168, 195, 154);
+		contentPane.add(btnMettreJour);
 		
-		JButton button = new JButton("Gestion Comptable");
-		button.setBounds(589, 114, 172, 133);
-		contentPane.add(button);
+		JButton btnSupprimerClient = new JButton("Supprimer Client");
+		btnSupprimerClient.setBounds(0, 481, 195, 169);
+		contentPane.add(btnSupprimerClient);
+		
+		JButton btnListerClients = new JButton("Lister Clients");
+		btnListerClients.setBounds(0, 322, 195, 159);
+		contentPane.add(btnListerClients);
+		
+		JButton btnRetourAuMennu = new JButton("Retour Au Menu");
+		btnRetourAuMennu.setBounds(931, 590, 121, 49);
+		contentPane.add(btnRetourAuMennu);
 	}
+
 }
