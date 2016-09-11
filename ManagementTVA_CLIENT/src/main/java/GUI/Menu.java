@@ -12,6 +12,11 @@ import javax.swing.border.EmptyBorder;
 
 public class Menu extends JFrame {
 
+	ClientFrame clientFrame = new ClientFrame();
+	CommandeFrame commandeFrame = new CommandeFrame();
+	ComptableFrame comptableFrame = new ComptableFrame();
+	StockFrame stockFrame = new StockFrame();
+
 	/**
 	 * 
 	 */
@@ -50,28 +55,48 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnGestionClient = new JButton("Gestion Client");
+		btnGestionClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clientFrame.setVisible(true);
+			}
+		});
 		btnGestionClient.setBounds(197, 114, 172, 133);
 		contentPane.add(btnGestionClient);
-		
+
 		JButton btnGestionComptable = new JButton("Gestion Comptable");
+		btnGestionComptable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comptableFrame.setVisible(true);
+			}
+		});
 		btnGestionComptable.setBounds(455, 114, 172, 133);
 		contentPane.add(btnGestionComptable);
-		
+
 		JButton btnGestionCommande = new JButton("Gestion Commande");
+		btnGestionCommande.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnGestionCommande.setBounds(697, 114, 172, 133);
 		contentPane.add(btnGestionCommande);
-		
+
 		JButton btnFicheClient = new JButton("Fiches Clients");
 		btnFicheClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				commandeFrame.setVisible(true);
 			}
 		});
 		btnFicheClient.setBounds(274, 351, 172, 133);
 		contentPane.add(btnFicheClient);
-		
+
 		JButton btnGestionDeStock = new JButton("Gestion de Stock");
+		btnGestionDeStock.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				stockFrame.setVisible(true);
+			}
+		});
 		btnGestionDeStock.setBounds(551, 351, 172, 133);
 		contentPane.add(btnGestionDeStock);
 	}

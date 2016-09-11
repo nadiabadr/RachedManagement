@@ -10,8 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class GestionClient extends JFrame {
-
+public class Basic extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -33,7 +36,7 @@ public class GestionClient extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GestionClient() {
+	public Basic() {
 		setMinimumSize(new Dimension(1100, 700));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

@@ -107,10 +107,12 @@ public class Authentification extends JFrame {
 
 					System.out.println("Hello Admin "
 							+ authentifiedUser.getNom());
-					JOptionPane.showMessageDialog(rootPane,
-							"Welcome  traveler " + authentifiedUser.getNom());
+					JOptionPane.showMessageDialog(rootPane, "Welcome "
+							+ authentifiedUser.getPrenom());
 					// TravelerGI travelerGI = new TravelerGI();
 					// travelerGI.setVisible(true);
+					Menu auto = new Menu();
+					auto.setVisible(true);
 					System.out.println("ena connectit: session login "
 							+ SessionDelegate.doGetLogin() + " Session Pwd "
 							+ SessionDelegate.doGetPwd());
@@ -143,7 +145,7 @@ public class Authentification extends JFrame {
 		lblBackground.setBounds(-56, -203, 1277, 860);
 		// lblBackground.setIcon(new
 		// javax.swing.ImageIcon(getClass().getResource(
-//				"/images/backgr.jpg")));
+		// "/images/backgr.jpg")));
 		lblBackground.setText("");
 		panel.add(lblBackground);
 	}
