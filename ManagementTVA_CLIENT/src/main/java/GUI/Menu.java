@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Menu extends JFrame {
 
-	ClientFrame clientFrame = new ClientFrame();
+	GestionClient gestionClient = new GestionClient();
 	CommandeFrame commandeFrame = new CommandeFrame();
 	ComptableFrame comptableFrame = new ComptableFrame();
 	StockFrame stockFrame = new StockFrame();
@@ -59,7 +59,8 @@ public class Menu extends JFrame {
 		JButton btnGestionClient = new JButton("Gestion Client");
 		btnGestionClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clientFrame.setVisible(true);
+				gestionClient.setVisible(true);
+				dispose();
 			}
 		});
 		btnGestionClient.setBounds(197, 114, 172, 133);
@@ -69,6 +70,7 @@ public class Menu extends JFrame {
 		btnGestionComptable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comptableFrame.setVisible(true);
+				dispose();
 			}
 		});
 		btnGestionComptable.setBounds(455, 114, 172, 133);
@@ -77,6 +79,8 @@ public class Menu extends JFrame {
 		JButton btnGestionCommande = new JButton("Gestion Commande");
 		btnGestionCommande.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				commandeFrame.setVisible(true);
+				dispose();
 			}
 		});
 		btnGestionCommande.setBounds(697, 114, 172, 133);
@@ -85,7 +89,7 @@ public class Menu extends JFrame {
 		JButton btnFicheClient = new JButton("Fiches Clients");
 		btnFicheClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				commandeFrame.setVisible(true);
+
 			}
 		});
 		btnFicheClient.setBounds(274, 351, 172, 133);
@@ -95,6 +99,7 @@ public class Menu extends JFrame {
 		btnGestionDeStock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				stockFrame.setVisible(true);
+				dispose();
 			}
 		});
 		btnGestionDeStock.setBounds(551, 351, 172, 133);
