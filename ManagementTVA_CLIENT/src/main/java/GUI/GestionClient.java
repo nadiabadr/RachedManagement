@@ -73,6 +73,10 @@ public class GestionClient extends JFrame {
 		contentPane.add(btnMettreJour);
 
 		JButton btnSupprimerClient = new JButton("Supprimer Client");
+		btnSupprimerClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSupprimerClient.setBounds(0, 481, 195, 169);
 		contentPane.add(btnSupprimerClient);
 

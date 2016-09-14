@@ -7,8 +7,7 @@ import javax.swing.JPanel;
 import BusinessDelegator.AdminDelegate;
 import BusinessDelegator.SessionDelegate;
 import Entities.Admin;
-import javax.swing.JTextField;
-
+import javax.swing.border.TitledBorder;
 
 public class ListeClientPanel extends JPanel {
 
@@ -17,22 +16,11 @@ public class ListeClientPanel extends JPanel {
 	 */
 	public Admin authentifiedUser;
 	private static final long serialVersionUID = 1L;
-	private JTextField txtHellooooo;
 
 	/**
 	 * Create the panel.
 	 */
 	public ListeClientPanel() {
-		setBackground(Color.GREEN);
-		setLayout(null);
-		
-		txtHellooooo = new JTextField();
-		txtHellooooo.setForeground(new Color(255, 255, 0));
-		txtHellooooo.setBackground(new Color(51, 102, 153));
-		txtHellooooo.setText("Hellooooo");
-		txtHellooooo.setBounds(135, 86, 86, 20);
-		add(txtHellooooo);
-		txtHellooooo.setColumns(10);
 		initialize();
 
 	}
@@ -42,5 +30,16 @@ public class ListeClientPanel extends JPanel {
 		authentifiedUser = AdminDelegate.doAuthenticate(
 				SessionDelegate.doGetLogin(), SessionDelegate.doGetPwd());
 
+		setBackground(Color.GREEN);
+
+		panel = new javax.swing.JPanel();
+		panel.setBackground(new Color(255, 0, 51));
+		panel.setBorder(new TitledBorder(null, "CLIENTS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(204, 102, 255)));
+		panel.setBounds(202, 11, 882, 568);
+		add(panel);
+		panel.setLayout(null);
+
 	}
+
+	private javax.swing.JPanel panel;
 }
