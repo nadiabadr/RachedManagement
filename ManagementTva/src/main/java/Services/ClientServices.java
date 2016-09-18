@@ -1,8 +1,11 @@
 package Services;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import Entities.Client;
 import Services.Interfaces.ClientServicesLocal;
@@ -73,5 +76,13 @@ public class ClientServices implements ClientServicesRemote,
 		} catch (Exception e) {
 		}
 		return b;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Client> findAllClients() {
+		String jpql = "select p from Commande p";
+		Query query = entityManager.createQuery(jpql);
+		return query.getResultList();
 	}
 }

@@ -19,7 +19,7 @@ public class Client implements Serializable {
 	private Integer id;
 	private String name;
 	private String responsable;
-	private Integer numTel;
+	private String numTel;
 	private static final long serialVersionUID = 1L;
 
 	private List<Commande> commandes;
@@ -28,7 +28,7 @@ public class Client implements Serializable {
 		super();
 	}
 
-	public Client(String name, String responsable, Integer numTel,
+	public Client(String name, String responsable, String numTel,
 			List<Commande> commandes) {
 		super();
 		this.name = name;
@@ -69,11 +69,11 @@ public class Client implements Serializable {
 		this.responsable = responsable;
 	}
 
-	public Integer getNumTel() {
+	public String getNumTel() {
 		return this.numTel;
 	}
 
-	public void setNumTel(Integer numTel) {
+	public void setNumTel(String numTel) {
 		this.numTel = numTel;
 	}
 

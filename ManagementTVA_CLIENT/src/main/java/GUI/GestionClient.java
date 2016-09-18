@@ -80,7 +80,7 @@ public class GestionClient extends JFrame {
 		btnSupprimerClient.setBounds(0, 481, 195, 169);
 		contentPane.add(btnSupprimerClient);
 
-		panelContent.setBounds(202, 11, 882, 568);
+		panelContent.setBounds(200, 10, 880, 560);
 		contentPane.add(panelContent);
 		JButton btnListerClients = new JButton("Lister Clients");
 		btnListerClients.addActionListener(new ActionListener() {
