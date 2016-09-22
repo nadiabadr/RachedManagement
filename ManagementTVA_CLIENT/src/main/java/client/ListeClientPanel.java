@@ -60,7 +60,7 @@ public class ListeClientPanel extends JPanel {
 
 		jPannelLibrary.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				javax.swing.BorderFactory.createLineBorder(new java.awt.Color(
-						51, 0, 0)), "List Of Ebooks and Articles",
+						51, 0, 0)), "Liste de tous mes clients",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Arial", 2, 12),

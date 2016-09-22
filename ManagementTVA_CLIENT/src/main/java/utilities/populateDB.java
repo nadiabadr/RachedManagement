@@ -63,11 +63,19 @@ public class populateDB {
 
 		// ASsigncommande to client
 		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
-				com0, client0.getId()));
+				com0, 1));
 		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
-				com1, client1.getId()));
+				com1, 1));
 		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
-				com2, client2.getId()));
+				com2, 1));
+		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
+				com0, 2));
+		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
+				com1, 2));
+		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
+				com2, 3));
+		System.out.println(CommandeDelegator.getProxy().assignCommandeToClient(
+				com1, 3));
 
 	}
 }

@@ -81,7 +81,7 @@ public class ClientServices implements ClientServicesRemote,
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> findAllClients() {
-		String jpql = "select p from Commande p";
+		String jpql = "select p from Client p";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}

@@ -14,7 +14,7 @@ public class ClientsModel extends AbstractTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 	List<Client> clients;
-	String[] entete = { "Nom", "Responsable", "Num Tel", "Commandes" };
+	String[] entete = { "Nom", "Responsable", "Num Tel" };
 
 	public ClientsModel() {
 		clients = ClientDelegator.doFindAllClients();
@@ -24,17 +24,17 @@ public class ClientsModel extends AbstractTableModel {
 	// clients
 	// }
 
-	 @Override
+	@Override
 	public int getRowCount() {
 		return clients.size();
 	}
 
-	 @Override
+	@Override
 	public int getColumnCount() {
 		return entete.length;
 	}
 
-	 @Override
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch (columnIndex) {
 		case 0: {
@@ -56,7 +56,7 @@ public class ClientsModel extends AbstractTableModel {
 		}
 	}
 
-	 @Override
+	@Override
 	public String getColumnName(int column) {
 
 		return entete[column];

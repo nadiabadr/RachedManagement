@@ -9,6 +9,7 @@ public class ClientTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Client> cs = ClientDelegator.doFindAllClients();
+		System.out.println(ClientDelegator.doFindAllClients());
 		for (Client c : cs) {
 			System.out.print(c.getName());
 		}
