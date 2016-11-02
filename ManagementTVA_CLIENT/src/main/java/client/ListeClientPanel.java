@@ -1,16 +1,22 @@
 package client;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.TableCellRenderer;
 
 import models.ClientsModel;
 import BusinessDelegator.AdminDelegate;
@@ -55,7 +61,7 @@ public class ListeClientPanel extends JPanel {
 
 			}
 		});
-		jTable1 = new javax.swing.JTable();
+		table = new javax.swing.JTable();
 		setLayout(null);
 
 		jPannelLibrary.setBorder(javax.swing.BorderFactory.createTitledBorder(
@@ -66,8 +72,9 @@ public class ListeClientPanel extends JPanel {
 				new java.awt.Font("Arial", 2, 12),
 				new java.awt.Color(102, 0, 0))); // NOI18N
 
-		jTable1.setModel(new ClientsModel());
-		jScrollLibrary.setViewportView(jTable1);
+		table.setModel(new ClientsModel());
+		table.getColumn("Commandes").setCellRenderer(new ButtonRenderer());
+		jScrollLibrary.setViewportView(table);
 
 		javax.swing.GroupLayout gl_jPannelLibrary = new javax.swing.GroupLayout(
 				jPannelLibrary);
@@ -105,13 +112,13 @@ public class ListeClientPanel extends JPanel {
 		buttonRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(SessionDelegate.doGetDuration());
-				// jTable1.setModel(new EbookTableModel("sa"));
+				// table.setModel(new EbookTableModel("sa"));
 			}
 		});
 		buttonRefresh.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				jTable1.setModel(new ClientsModel());
+				table.setModel(new ClientsModel());
 			}
 		});
 		buttonRefresh.setText("Refresh ");
@@ -124,10 +131,100 @@ public class ListeClientPanel extends JPanel {
 
 	private javax.swing.JPanel jPannelLibrary;
 	private javax.swing.JScrollPane jScrollLibrary;
-	private javax.swing.JTable jTable1;
+	private javax.swing.JTable table;
 
 	private JButton buttonRefresh;
 
 	// ***********************************************************
 
 }
+
+// **************************************************************************************************************************
+class ButtonRenderer extends JButton implements TableCellRenderer {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ButtonRenderer() {
+		setOpaque(true);
+	}
+
+	public Component getTableCellRendererComponent(JTable table, Object value,
+			boolean isSelected, boolean hasFocus, int row, int column) {
+		if (isSelected) {
+			setForeground(table.getSelectionForeground());
+			setBackground(table.getSelectionBackground());
+		} else {
+			setForeground(table.getForeground());
+			setBackground(UIManager.getColor("Button.background"));
+		}
+		setText((value == null) ? "" : value.toString());
+		return this;
+	}
+}
+
+// **************************************************************************************************************************
+/**
+ * @version 1.0 11/09/98
+ */
+class ButtonEditor extends DefaultCellEditor {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected JButton button;
+
+	private String label;
+
+	private boolean isPushed;
+
+	public ButtonEditor(JCheckBox checkBox) {
+		super(checkBox);
+		button = new JButton();
+		button.setOpaque(true);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fireEditingStopped();
+			}
+		});
+	}
+
+	public Component getTableCellEditorComponent(JTable table, Object value,
+			boolean isSelected, int row, int column) {
+		if (isSelected) {
+			button.setForeground(table.getSelectionForeground());
+			button.setBackground(table.getSelectionBackground());
+		} else {
+			button.setForeground(table.getForeground());
+			button.setBackground(table.getBackground());
+		}
+		label = (value == null) ? "" : value.toString();
+		button.setText(label);
+		isPushed = true;
+		return button;
+	}
+
+	public Object getCellEditorValue() {
+		if (isPushed) {
+			//
+			//
+			JOptionPane.showMessageDialog(button, label + ": Ouch!");
+			// System.out.println(label + ": Ouch");
+		}
+		isPushed = false;
+		return new String(label);
+	}
+
+	public boolean stopCellEditing() {
+		isPushed = false;
+		return super.stopCellEditing();
+	}
+
+	protected void fireEditingStopped() {
+		super.fireEditingStopped();
+	}
+}
+// **************************************************************************************************************************

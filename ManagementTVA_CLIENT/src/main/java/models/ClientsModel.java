@@ -14,7 +14,7 @@ public class ClientsModel extends AbstractTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 	List<Client> clients;
-	String[] entete = { "Nom", "Responsable", "Num Tel" };
+	String[] entete = { "Nom", "Responsable", "Num Tel", "Commandes" };
 
 	public ClientsModel() {
 		clients = ClientDelegator.doFindAllClients();
@@ -47,6 +47,7 @@ public class ClientsModel extends AbstractTableModel {
 			return clients.get(rowIndex).getNumTel();
 		}
 		case 3: {
+			return "Voir Commandes";
 
 		}
 
